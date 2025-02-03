@@ -16,13 +16,17 @@ const PokemonDetail = () => {
       <DetailDiv>
         <p>NO. {id}</p>
         <H1>{korean_name}</H1>
+
         <Img src={img_url} alt="포켓몬사진" />
+
         <TypesDiv>
           {types.map((type) => (
             <Type key={type}>{type}</Type>
           ))}
         </TypesDiv>
+
         <P>{description}</P>
+
         <Link to="/dex">
           <CloseButton>뒤로가기</CloseButton>
         </Link>

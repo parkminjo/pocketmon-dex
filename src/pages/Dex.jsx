@@ -5,6 +5,7 @@ import PokemonList from "../components/PokemonList";
 import Header from "../components/Header";
 
 const Dex = () => {
+  /** 포켓몬 6마리 state */
   const [pokemonList, setPokemonList] = useState(
     JSON.parse(localStorage.getItem("pokemonList")) || []
   );

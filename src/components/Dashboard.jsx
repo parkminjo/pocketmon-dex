@@ -4,6 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = ({ pokemonList, setPokemonList }) => {
+  /**
+   * 포켓몬 카드 삭제 함수
+   * @param {*} id
+   */
   const removePokemon = (id) => {
     setPokemonList((prev) => prev.filter((pokemon) => pokemon.id !== id));
   };
@@ -17,10 +21,12 @@ const Dashboard = ({ pokemonList, setPokemonList }) => {
           return (
             <SelectedCard key={pokemon.id}>
               <PokemonImg src={pokemon.img_url} alt="포켓몬사진" />
+
               <div>
                 <P>NO. {pokemon.id}</P>
                 <H1>{pokemon.korean_name}</H1>
               </div>
+
               <DeleteButton onClick={() => removePokemon(pokemon.id)}>
                 <FontAwesomeIcon icon={faHeart} />
               </DeleteButton>
