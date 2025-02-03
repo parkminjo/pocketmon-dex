@@ -40,9 +40,10 @@ const PokemonCard = ({ pokemonList, setPokemonList }) => {
         const { id, img_url, korean_name, types } = pokemon;
         return (
           <Card key={id} onClick={() => navigate(`/detail?id=${id}`)}>
-            <img src={img_url} alt="포켓몬 사진" />
             <P>No. {id}</P>
             <H1>{korean_name}</H1>
+
+            <img src={img_url} alt="포켓몬 사진" />
 
             <TypesDiv>
               {types.map((type) => (
@@ -99,13 +100,12 @@ const P = styled.p`
 
 const H1 = styled.h1`
   font-size: 20px;
-  margin-bottom: 8px;
 `;
 
 const TypesDiv = styled.div`
   display: flex;
   gap: 6px;
-  margin-bottom: 1rem;
+  margin: 10px 0 1rem 0;
 `;
 
 const Type = styled.button`
