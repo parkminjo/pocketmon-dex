@@ -4,6 +4,15 @@ import MOCK_DATA from "../API/MOCK_DATA";
 
 const PokemonCard = ({ pokemonList, setPokemonList }) => {
   const addPokemon = (id, img_url, korean_name, types) => {
+    if (pokemonList.length > 6) {
+      alert("포켓몬 6마리를 모두 등록하셨습니다");
+      return;
+    }
+    if (pokemonList.some((pokemon) => pokemon.id === id)) {
+      alert("이미 등록된 포켓몬입니다");
+      return;
+    }
+
     setPokemonList((prev) => {
       return [...prev, { id, img_url, korean_name, types }];
     });
