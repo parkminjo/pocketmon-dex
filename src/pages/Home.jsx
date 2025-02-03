@@ -8,8 +8,9 @@ const Home = () => {
   /** UI */
   return (
     <Div>
-      <Img src="../../img/pokemonDex.webp" alt="포켓몬도감" />
-      <button onClick={() => navigate("/dex")}>포켓몬 도감 시작하기</button>
+      <Button onClick={() => navigate("/dex")}>
+        <Img src="../../img/pokemonDex.webp" alt="포켓몬도감" />
+      </Button>
     </Div>
   );
 };
@@ -21,8 +22,23 @@ const Div = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  height: 100vh;
+  background-color: #272727;
 `;
 
 const Img = styled.img`
-  width: 500px;
+  width: 600px;
+`;
+
+const Button = styled.button`
+  border: none;
+  background-color: transparent;
+  opacity: 80%;
+  &:hover {
+    opacity: 100%;
+    transform: scale(1.1, 1.1);
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in;
+  }
 `;

@@ -15,14 +15,14 @@ const PokemonCard = ({ pokemonList, setPokemonList }) => {
    * @param {*} types
    */
   const addPokemon = (id, img_url, korean_name, types) => {
-    /** 예외상황01: 포켓몬 6마리 모두 등록됐을 때 */
-    if (pokemonList.length > 5) {
-      alert("포켓몬 6마리를 모두 등록하셨습니다");
-      return;
-    }
-    /** 예외상황02: 이미 등록된 포켓몬일 때 */
+    /** 예외상황01: 이미 등록된 포켓몬일 때 */
     if (pokemonList.some((pokemon) => pokemon.id === id)) {
       alert("이미 등록된 포켓몬입니다");
+      return;
+    }
+    /** 예외상황02: 포켓몬 6마리 모두 등록됐을 때 */
+    if (pokemonList.length > 5) {
+      alert("포켓몬 6마리를 모두 등록하셨습니다");
       return;
     }
 
@@ -39,7 +39,7 @@ const PokemonCard = ({ pokemonList, setPokemonList }) => {
       {MOCK_DATA.map((pokemon) => {
         const { id, img_url, korean_name, types } = pokemon;
         return (
-          <Card key={id} onClick={() => navigate(`/dex/${id}`)}>
+          <Card key={id} onClick={() => navigate(`/detail?id=${id}`)}>
             <img src={img_url} alt="포켓몬 사진" />
             <P>No. {id}</P>
             <H1>{korean_name}</H1>

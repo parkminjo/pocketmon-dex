@@ -1,12 +1,13 @@
 import React from "react";
 import MOCK_DATA from "../API/MOCK_DATA";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 
 const PokemonDetail = () => {
-  const param = useParams();
+  const [searchParam, setSearchParam] = useSearchParams();
+  const queryId = searchParam.get("id");
   const { img_url, korean_name, types, description, id } = MOCK_DATA.find(
-    (pokemon) => pokemon.id === +param.id
+    (pokemon) => pokemon.id === +queryId
   );
 
   return (

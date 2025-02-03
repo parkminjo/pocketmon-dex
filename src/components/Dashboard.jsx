@@ -5,6 +5,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = ({ pokemonList, setPokemonList }) => {
   const removePokemon = (id) => {
+    console.log(pokemonList);
     setPokemonList((prev) => prev.filter((pokemon) => pokemon.id !== id));
   };
   /** UI */
