@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = ({ pokemonList, setPokemonList }) => {
-  const handleDelete = (id) => {
+  const removePokemon = (id) => {
     setPokemonList((prev) => prev.filter((pokemon) => pokemon.id !== id));
   };
   /** UI */
@@ -24,7 +24,7 @@ const Dashboard = ({ pokemonList, setPokemonList }) => {
               <P>NO. {pokemon.id}</P>
               <H1>{pokemon.korean_name}</H1>
             </div>
-            <DeleteButton onClick={() => handleDelete(pokemon.id)}>
+            <DeleteButton onClick={() => removePokemon(pokemon.id)}>
               <FontAwesomeIcon icon={faHeart} />
             </DeleteButton>
           </SelectedCard>
