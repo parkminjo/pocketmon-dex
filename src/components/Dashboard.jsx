@@ -3,18 +3,42 @@ import styled from "styled-components";
 
 const Dashboard = () => {
   return (
-    <div>
-      <div>
+    <Div>
+      <PokeballCard>
         <Img src="../../img/ball.png" alt="포켓볼" />
-      </div>
-    </div>
+      </PokeballCard>
+      <PokeballCard>
+        <Img src="../../img/ball.png" alt="포켓볼" />
+      </PokeballCard>
+      <PokeballCard>
+        <Img src="../../img/ball.png" alt="포켓볼" />
+      </PokeballCard>
+      <PokeballCard>
+        <Img src="../../img/ball.png" alt="포켓볼" />
+      </PokeballCard>
+      <PokeballCard>
+        <Img src="../../img/ball.png" alt="포켓볼" />
+      </PokeballCard>
+      <PokeballCard>
+        <Img src="../../img/ball.png" alt="포켓볼" />
+      </PokeballCard>
+    </Div>
   );
 };
 
 export default Dashboard;
 
-const PokeballCard = styled.div``;
+const Div = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const PokeballCard = styled.div`
+  display: flex;
+  width: 100px;
+  height: 100px;
+`;
 
 const Img = styled.img`
-  width: 60px;
+  object-fit: cover;
 `;

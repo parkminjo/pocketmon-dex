@@ -2,6 +2,7 @@ import React from "react";
 import Dashboard from "../components/Dashboard";
 import styled from "styled-components";
 import PokemonList from "../components/PokemonList";
+import Search from "../components/Search";
 
 const Dex = () => {
   return (
@@ -11,6 +12,7 @@ const Dex = () => {
       </Header>
       <Container>
         <Dashboard />
+        <Search />
         <PokemonList />
       </Container>
     </div>
@@ -31,6 +33,6 @@ const Header = styled.header`
 `;
 
 const Container = styled.div`
-  margin: 0 24px 0 24px;
-  background-color: beige;
+  margin: 0 3rem 0 3rem;
+  padding-top: 1rem;
 `;
