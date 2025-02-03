@@ -2,17 +2,14 @@ import React from "react";
 import Dashboard from "../components/Dashboard";
 import styled from "styled-components";
 import PokemonList from "../components/PokemonList";
-import Search from "../components/Search";
+import Header from "../components/Header";
 
 const Dex = () => {
   return (
     <div>
-      <Header>
-        <Img src="../../img/pokemonLogo.png" alt="로고" />
-      </Header>
+      <Header />
       <Container>
         <Dashboard />
-        <Search />
         <PokemonList />
       </Container>
     </div>
@@ -21,18 +18,8 @@ const Dex = () => {
 
 export default Dex;
 
-const Img = styled.img`
-  width: 70px;
-`;
-
-const Header = styled.header`
-  display: flex;
-  padding: 10px;
-  width: 100%;
-  background-color: black;
-`;
-
 const Container = styled.div`
+  height: 100vh;
   margin: 0 3rem 0 3rem;
   padding-top: 1rem;
 `;

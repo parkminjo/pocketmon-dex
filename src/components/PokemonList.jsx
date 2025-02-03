@@ -12,8 +12,9 @@ const PokemonList = () => {
 
 export default PokemonList;
 
+/** styled component */
 const Div = styled.div`
-  margin-top: 2rem;
+  margin-top: 32px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;

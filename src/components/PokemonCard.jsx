@@ -7,7 +7,7 @@ const PokemonCard = () => {
     <>
       {MOCK_DATA.map((pokemon) => {
         return (
-          <Card>
+          <Card key={pokemon.id}>
             <img src={pokemon.img_url} alt="포켓몬 사진" />
             <P>No. {pokemon.id}</P>
             <H1>{pokemon.korean_name}</H1>
@@ -21,6 +21,7 @@ const PokemonCard = () => {
 
 export default PokemonCard;
 
+/** styled component */
 const Card = styled.div`
   display: flex;
   flex-direction: column;
