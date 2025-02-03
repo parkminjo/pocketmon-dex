@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Header = () => {
+  /** UI */
   return (
     <Div>
       <Img src="../../img/pokemonLogo.png" alt="로고" />

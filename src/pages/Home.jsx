@@ -5,6 +5,7 @@ import styled from "styled-components";
 const Home = () => {
   const navigate = useNavigate();
 
+  /** UI */
   return (
     <Div>
       <Img src="../../img/pokemonDex.webp" alt="포켓몬도감" />

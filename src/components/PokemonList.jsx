@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
 
-const PokemonList = () => {
+const PokemonList = ({ pokemonList, setPokemonList }) => {
+  /** UI */
   return (
     <Div>
-      <PokemonCard />
+      <PokemonCard pokemonList={pokemonList} setPokemonList={setPokemonList} />
     </Div>
   );
 };
