@@ -11,14 +11,15 @@ const PokemonDetail = () => {
 
   return (
     <Div>
-      <img src={img_url} alt="포켓몬사진" />
-      <h1>{korean_name}</h1>
+      <Img src={img_url} alt="포켓몬사진" />
+      <p>NO. {id}</p>
+      <H1>{korean_name}</H1>
       <TypesDiv>
         {types.map((type) => (
           <Type key={type}>{type}</Type>
         ))}
       </TypesDiv>
-      <p>{description}</p>
+      <P>{description}</P>
       <Link to="/dex">
         <CloseButton>뒤로가기</CloseButton>
       </Link>
@@ -33,11 +34,21 @@ const Div = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 `;
 
 const CloseButton = styled.button`
   border: none;
   padding: 5px;
+`;
+
+const Img = styled.img`
+  width: 150px;
+`;
+
+const H1 = styled.h1`
+  font-size: 2rem;
+  margin-bottom: 10px;
 `;
 
 const TypesDiv = styled.div`
@@ -53,4 +64,12 @@ const Type = styled.button`
   border-radius: 5px;
   padding: 5px;
   width: 50px;
+`;
+
+const P = styled.p`
+  font-size: 20px;
+  margin-bottom: 1rem;
+  background-size: cover;
+  text-align: center;
+  width: 100%;
 `;
