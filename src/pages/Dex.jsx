@@ -3,8 +3,6 @@ import Dashboard from "../components/Dashboard";
 import styled from "styled-components";
 import PokemonList from "../components/PokemonList";
 import Header from "../components/Header";
-import { useParams } from "react-router-dom";
-import PokemonDetail from "./PokemonDetail";
 
 const Dex = () => {
   const [pokemonList, setPokemonList] = useState(
