@@ -41,7 +41,7 @@ const Div = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 30px;
 `;
 
 const Pokeball = styled.div`
@@ -58,7 +58,7 @@ const SelectedCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 220px;
+  width: 180px;
   height: 100px;
   padding-right: 10px;
   border: 1px solid #acb5bd;
@@ -75,6 +75,7 @@ const H1 = styled.h1`
 `;
 
 const DeleteButton = styled.button`
+  margin-left: 10px;
   border: none;
   background-color: transparent;
   font-size: 20px;

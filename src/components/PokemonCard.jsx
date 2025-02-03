@@ -51,7 +51,10 @@ const PokemonCard = ({ pokemonList, setPokemonList }) => {
             </TypesDiv>
 
             <AddButton
-              onClick={() => addPokemon(id, img_url, korean_name, types)}
+              onClick={(event) => {
+                event.stopPropagation();
+                addPokemon(id, img_url, korean_name, types);
+              }}
             >
               {pokemonList.some((pokemon) => pokemon.id === id) ? (
                 <FontAwesomeIcon icon={faSolidHeart} />
@@ -74,8 +77,8 @@ const Card = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 180px;
-  height: 240px;
+  width: 200px;
+  height: 260px;
   border-radius: 1rem;
   box-shadow: 0 0 6px 1px #acb5bd;
 
