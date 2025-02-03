@@ -1,11 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
-import { useParams } from "react-router-dom";
 
 const PokemonList = ({ pokemonList, setPokemonList }) => {
-  const param = useParams();
-
   /** UI */
   return (
     <Div>

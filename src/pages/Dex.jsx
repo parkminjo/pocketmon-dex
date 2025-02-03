@@ -16,7 +16,7 @@ const Dex = () => {
 
   /** UI */
   return (
-    <div>
+    <Div>
       <Header />
       <Container>
         <Dashboard pokemonList={pokemonList} setPokemonList={setPokemonList} />
@@ -25,14 +25,20 @@ const Dex = () => {
           setPokemonList={setPokemonList}
         />
       </Container>
-    </div>
+    </Div>
   );
 };
 
 export default Dex;
 
+/** styled component */
+const Div = styled.div`
+  background-color: #121212;
+  min-height: 100vh;
+`;
+
 const Container = styled.div`
-  height: 100vh;
   margin: 0 3rem 0 3rem;
-  padding-top: 1rem;
+  padding: 1rem 0 5rem 0;
+  min-height: auto;
 `;

@@ -17,6 +17,7 @@ const Home = () => {
 
 export default Home;
 
+/** styled component */
 const Div = styled.div`
   display: flex;
   flex-direction: column;
@@ -24,7 +25,7 @@ const Div = styled.div`
   align-items: center;
   margin: 0 auto;
   height: 100vh;
-  background-color: #272727;
+  background-color: #121212;
 `;
 
 const Img = styled.img`

@@ -5,32 +5,38 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = ({ pokemonList, setPokemonList }) => {
   const removePokemon = (id) => {
-    console.log(pokemonList);
     setPokemonList((prev) => prev.filter((pokemon) => pokemon.id !== id));
   };
+
   /** UI */
   return (
     <Div>
-      {pokemonList.length === 0 && (
-        <Pokeball>
-          <Img src="../../img/ball.png" alt="포켓볼" />
-        </Pokeball>
-      )}
+      <H2>나만의 포켓몬</H2>
+      <CardDiv>
+        {pokemonList.map((pokemon) => {
+          return (
+            <SelectedCard key={pokemon.id}>
+              <PokemonImg src={pokemon.img_url} alt="포켓몬사진" />
+              <div>
+                <P>NO. {pokemon.id}</P>
+                <H1>{pokemon.korean_name}</H1>
+              </div>
+              <DeleteButton onClick={() => removePokemon(pokemon.id)}>
+                <FontAwesomeIcon icon={faHeart} />
+              </DeleteButton>
+            </SelectedCard>
+          );
+        })}
 
-      {pokemonList.map((pokemon) => {
-        return (
-          <SelectedCard key={pokemon.id}>
-            <img src={pokemon.img_url} alt="포켓몬사진" />
-            <div>
-              <P>NO. {pokemon.id}</P>
-              <H1>{pokemon.korean_name}</H1>
-            </div>
-            <DeleteButton onClick={() => removePokemon(pokemon.id)}>
-              <FontAwesomeIcon icon={faHeart} />
-            </DeleteButton>
-          </SelectedCard>
-        );
-      })}
+        {pokemonList.length < 6 &&
+          new Array(6 - pokemonList.length).fill(null).map((_, idx) => {
+            return (
+              <Pokeball key={idx}>
+                <Img src="../../img/ball.png" alt="포켓볼" />
+              </Pokeball>
+            );
+          })}
+      </CardDiv>
     </Div>
   );
 };
@@ -39,6 +45,20 @@ export default Dashboard;
 
 /** styled component */
 const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 4px solid #ffcb03;
+`;
+const H2 = styled.h2`
+  font-size: 20px;
+  margin-bottom: 1rem;
+`;
+
+const CardDiv = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -61,9 +81,14 @@ const SelectedCard = styled.div`
   justify-content: space-evenly;
   width: 180px;
   height: 100px;
-  padding-right: 10px;
-  border: 1px solid #acb5bd;
+  padding-right: 8px;
   border-radius: 1rem;
+  background-color: #ffcb03;
+  border: 5px solid #c29b00;
+`;
+
+const PokemonImg = styled.img`
+  width: 65px;
 `;
 
 const P = styled.p`
