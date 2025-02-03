@@ -84,7 +84,6 @@ const SelectedCard = styled.div`
   padding-right: 8px;
   border-radius: 1rem;
   background-color: #ffcb03;
-  border: 5px solid #c29b00;
 `;
 
 const PokemonImg = styled.img`

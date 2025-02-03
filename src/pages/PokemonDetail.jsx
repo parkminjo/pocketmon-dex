@@ -14,9 +14,9 @@ const PokemonDetail = () => {
   return (
     <Div>
       <DetailDiv>
-        <Img src={img_url} alt="포켓몬사진" />
         <p>NO. {id}</p>
         <H1>{korean_name}</H1>
+        <Img src={img_url} alt="포켓몬사진" />
         <TypesDiv>
           {types.map((type) => (
             <Type key={type}>{type}</Type>
@@ -73,7 +73,7 @@ const Img = styled.img`
 
 const H1 = styled.h1`
   font-size: 2rem;
-  margin-bottom: 10px;
+  margin-top: 8px;
 `;
 
 const TypesDiv = styled.div`
