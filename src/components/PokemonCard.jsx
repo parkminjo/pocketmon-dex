@@ -1,13 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import MOCK_DATA from "../API/MOCK_DATA";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
 
 const PokemonCard = ({ pokemonList, setPokemonList }) => {
   const addPokemon = (id, img_url, korean_name, types) => {
-    if (pokemonList.length > 6) {
+    /** 예외상황01: 포켓몬 6마리 모두 등록됐을 때 */
+    if (pokemonList.length > 5) {
       alert("포켓몬 6마리를 모두 등록하셨습니다");
       return;
     }
+    /** 예외상황02: 이미 등록된 포켓몬일 때 */
     if (pokemonList.some((pokemon) => pokemon.id === id)) {
       alert("이미 등록된 포켓몬입니다");
       return;
@@ -36,7 +41,11 @@ const PokemonCard = ({ pokemonList, setPokemonList }) => {
             <AddButton
               onClick={() => addPokemon(id, img_url, korean_name, types)}
             >
-              추가
+              {pokemonList.some((pokemon) => pokemon.id === id) ? (
+                <FontAwesomeIcon icon={faSolidHeart} />
+              ) : (
+                <FontAwesomeIcon icon={faRegularHeart} />
+              )}
             </AddButton>
           </Card>
         );
@@ -57,6 +66,12 @@ const Card = styled.div`
   height: 240px;
   border-radius: 1rem;
   box-shadow: 0 0 5px 1px #acb5bd;
+
+  &:hover {
+    transform: translateY(-10px);
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+  }
 `;
 
 const P = styled.p`
@@ -87,5 +102,10 @@ const Type = styled.button`
 const AddButton = styled.button`
   border: none;
   background-color: transparent;
+  font-size: 20px;
+  color: #697076;
   cursor: pointer;
+  &:hover {
+    color: #ee4e4e;
+  }
 `;

@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = ({ pokemonList, setPokemonList }) => {
   const handleDelete = (id) => {
@@ -16,14 +18,16 @@ const Dashboard = ({ pokemonList, setPokemonList }) => {
 
       {pokemonList.map((pokemon) => {
         return (
-          <PokemonCard key={pokemon.id}>
+          <SelectedCard key={pokemon.id}>
             <img src={pokemon.img_url} alt="포켓몬사진" />
             <div>
               <P>NO. {pokemon.id}</P>
               <H1>{pokemon.korean_name}</H1>
             </div>
-            <button onClick={() => handleDelete(pokemon.id)}>삭제</button>
-          </PokemonCard>
+            <DeleteButton onClick={() => handleDelete(pokemon.id)}>
+              <FontAwesomeIcon icon={faHeart} />
+            </DeleteButton>
+          </SelectedCard>
         );
       })}
     </Div>
@@ -50,13 +54,13 @@ const Img = styled.img`
   object-fit: cover;
 `;
 
-const PokemonCard = styled.div`
+const SelectedCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 200px;
+  width: 220px;
   height: 100px;
-  padding-right: 1rem;
+  padding-right: 10px;
   border: 1px solid #acb5bd;
   border-radius: 1rem;
 `;
@@ -68,4 +72,14 @@ const P = styled.p`
 
 const H1 = styled.h1`
   font-size: 20px;
+`;
+
+const DeleteButton = styled.button`
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  color: #ee4e4e;
+  &:hover {
+    color: #697076;
+  }
 `;
