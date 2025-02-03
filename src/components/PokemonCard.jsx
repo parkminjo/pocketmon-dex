@@ -4,8 +4,16 @@ import MOCK_DATA from "../API/MOCK_DATA";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const PokemonCard = ({ pokemonList, setPokemonList }) => {
+  /**
+   * 포켓몬 카드 추가 함수
+   * @param {*} id
+   * @param {*} img_url
+   * @param {*} korean_name
+   * @param {*} types
+   */
   const addPokemon = (id, img_url, korean_name, types) => {
     /** 예외상황01: 포켓몬 6마리 모두 등록됐을 때 */
     if (pokemonList.length > 5) {
@@ -23,21 +31,25 @@ const PokemonCard = ({ pokemonList, setPokemonList }) => {
     });
   };
 
+  const navigate = useNavigate();
+
   /** UI */
   return (
     <>
       {MOCK_DATA.map((pokemon) => {
         const { id, img_url, korean_name, types } = pokemon;
         return (
-          <Card key={id}>
+          <Card key={id} onClick={() => navigate(`/dex/${id}`)}>
             <img src={img_url} alt="포켓몬 사진" />
             <P>No. {id}</P>
             <H1>{korean_name}</H1>
+
             <TypesDiv>
               {types.map((type) => (
                 <Type key={type}>{type}</Type>
               ))}
             </TypesDiv>
+
             <AddButton
               onClick={() => addPokemon(id, img_url, korean_name, types)}
             >
@@ -65,10 +77,11 @@ const Card = styled.div`
   width: 180px;
   height: 240px;
   border-radius: 1rem;
-  box-shadow: 0 0 5px 1px #acb5bd;
+  box-shadow: 0 0 6px 1px #acb5bd;
 
   &:hover {
     transform: translateY(-10px);
+    box-shadow: 0 0 10px 1px #acb5bd;
     transition-duration: 0.2s;
     transition-timing-function: ease-in-out;
   }
