@@ -13,7 +13,7 @@ const Dashboard = () => {
 
   /** UI */
   return (
-    <Div>
+    <CardContainer>
       <H2>나만의 포켓몬</H2>
       <CardDiv>
         {pokemonList.map((pokemon) => {
@@ -44,20 +44,20 @@ const Dashboard = () => {
         {pokemonList.length < 6 &&
           new Array(6 - pokemonList.length).fill(null).map((_, idx) => {
             return (
-              <Pokeball key={idx}>
+              <PokeballDiv key={idx}>
                 <Img src="../../img/ball.png" alt="포켓볼" />
-              </Pokeball>
+              </PokeballDiv>
             );
           })}
       </CardDiv>
-    </Div>
+    </CardContainer>
   );
 };
 
 export default Dashboard;
 
 /** styled component */
-const Div = styled.div`
+const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,7 +78,7 @@ const CardDiv = styled.div`
   gap: 30px;
 `;
 
-const Pokeball = styled.div`
+const PokeballDiv = styled.div`
   display: flex;
   width: 100px;
   height: 100px;
