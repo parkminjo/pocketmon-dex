@@ -7,7 +7,7 @@ import { PokemonContext } from "../context/PokemonContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
-import { ToastContainer } from "react-toastify";
+import { Slide, ToastContainer } from "react-toastify";
 
 const PokemonCard = () => {
   const { pokemonList, addPokemon } = useContext(PokemonContext);
