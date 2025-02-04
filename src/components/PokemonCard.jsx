@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import MOCK_DATA from "../API/MOCK_DATA";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import PokemonContext from "../context/PokemonContext";
 
-const PokemonCard = ({ pokemonList, setPokemonList }) => {
+const PokemonCard = () => {
+  const { pokemonList, setPokemonList } = useContext(PokemonContext);
+
   /**
    * 포켓몬 카드 추가 함수
    * @param {*} id

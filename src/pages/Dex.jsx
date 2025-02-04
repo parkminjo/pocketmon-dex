@@ -3,6 +3,7 @@ import Dashboard from "../components/Dashboard";
 import styled from "styled-components";
 import PokemonList from "../components/PokemonList";
 import Header from "../components/Header";
+import PokemonContext from "../context/PokemonContext";
 
 const Dex = () => {
   /** 포켓몬 6마리 state */
@@ -17,16 +18,21 @@ const Dex = () => {
 
   /** UI */
   return (
-    <Div>
-      <Header />
-      <Container>
-        <Dashboard pokemonList={pokemonList} setPokemonList={setPokemonList} />
-        <PokemonList
-          pokemonList={pokemonList}
-          setPokemonList={setPokemonList}
-        />
-      </Container>
-    </Div>
+    <PokemonContext.Provider value={{ pokemonList, setPokemonList }}>
+      <Div>
+        <Header />
+        <Container>
+          <Dashboard
+            pokemonList={pokemonList}
+            setPokemonList={setPokemonList}
+          />
+          <PokemonList
+            pokemonList={pokemonList}
+            setPokemonList={setPokemonList}
+          />
+        </Container>
+      </Div>
+    </PokemonContext.Provider>
   );
 };
 

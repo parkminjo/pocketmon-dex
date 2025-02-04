@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import PokemonContext from "../context/PokemonContext";
 
-const Dashboard = ({ pokemonList, setPokemonList }) => {
+const Dashboard = () => {
+  const { pokemonList, setPokemonList } = useContext(PokemonContext);
+
   /**
    * 포켓몬 카드 삭제 함수
    * @param {*} id
