@@ -13,8 +13,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 const PokemonCard = () => {
   /** 알림창 */
-  const notifyAlready = () => toast("이미 등록된 포켓몬입니다");
-  const notifyAll = () => toast("포켓몬 6마리를 모두 등록하셨습니다");
+  const notifyAlready = () => toast.error("이미 등록된 포켓몬입니다");
+  const notifyAll = () => toast.error("포켓몬 6마리를 모두 등록하셨습니다");
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -65,6 +65,7 @@ const PokemonCard = () => {
               limit={1}
               closeButton={false}
               autoClose={2000}
+              theme="dark"
             />
           </Card>
         );
