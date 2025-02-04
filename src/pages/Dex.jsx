@@ -3,6 +3,7 @@ import Dashboard from "../components/Dashboard";
 import styled from "styled-components";
 import PokemonList from "../components/PokemonList";
 import Header from "../components/Header";
+import { useDispatch } from "react-redux";
 
 const Dex = () => {
   /** 포켓몬 6마리 state */
@@ -14,6 +15,8 @@ const Dex = () => {
   useEffect(() => {
     localStorage.setItem("pokemonList", JSON.stringify(pokemonList));
   }, [pokemonList]);
+
+  const dispatch = useDispatch();
 
   /** UI */
   return (
