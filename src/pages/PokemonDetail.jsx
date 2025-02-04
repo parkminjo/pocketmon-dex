@@ -10,7 +10,7 @@ import { Slide, toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { useDispatch, useSelector } from "react-redux";
-import { addPokemon, removePokemon } from "../redux/\bslices/PokemonSlice";
+import { addPokemon, removePokemon } from "../redux/slices/pokemonSlice";
 
 const PokemonDetail = () => {
   const [searchParam] = useSearchParams();

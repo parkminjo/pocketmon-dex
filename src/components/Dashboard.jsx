@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { removePokemon } from "../redux/\bslices/PokemonSlice";
 import { useNavigate } from "react-router-dom";
+import { removePokemon } from "../redux/slices/pokemonSlice";
 
 const Dashboard = () => {
   const pokemonList = useSelector((state) => state.pokemon);
