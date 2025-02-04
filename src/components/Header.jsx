@@ -5,7 +5,7 @@ const Header = () => {
   /** UI */
   return (
     <Div>
-      <Img src="../../img/pokemonLogo.png" alt="로고" />
+      <Img src="https://ifh.cc/g/WOXQw7.png" alt="로고" />
     </Div>
   );
 };

@@ -1,7 +1,7 @@
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { PokemonContext } from "../context/PokemonContext";
 
@@ -44,7 +44,7 @@ const Dashboard = () => {
           new Array(6 - pokemonList.length).fill(null).map((_, idx) => {
             return (
               <Pokeball key={idx}>
-                <Img src="../../img/ball.png" alt="포켓볼" />
+                <Img src="https://ifh.cc/g/B87CRh.png" alt="포켓볼" />
               </Pokeball>
             );
           })}

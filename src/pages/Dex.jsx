@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Dashboard from "../components/Dashboard";
+import React from "react";
 import styled from "styled-components";
-import PokemonList from "../components/PokemonList";
+import Dashboard from "../components/Dashboard";
 import Header from "../components/Header";
+import PokemonList from "../components/PokemonList";
 
 const Dex = () => {
   /** UI */
