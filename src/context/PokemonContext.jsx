@@ -1,6 +1,11 @@
 import { createContext, useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const PokemonContext = createContext(null);
+
+const notifyAlready = () => toast.error("이미 등록된 포켓몬입니다");
+const notifyAll = () => toast.error("포켓몬 6마리를 모두 등록하셨습니다");
 
 export const PokemonProvider = ({ children }) => {
   const [pokemonList, setPokemonList] = useState(
@@ -22,12 +27,12 @@ export const PokemonProvider = ({ children }) => {
   const addPokemon = (id, img_url, korean_name, types) => {
     /** 예외상황01: 이미 등록된 포켓몬일 때 */
     if (pokemonList.some((pokemon) => pokemon.id === id)) {
-      alert("이미 등록된 포켓몬입니다");
+      notifyAlready();
       return;
     }
     /** 예외상황02: 포켓몬 6마리 모두 등록됐을 때 */
     if (pokemonList.length > 5) {
-      alert("포켓몬 6마리를 모두 등록하셨습니다");
+      notifyAll();
       return;
     }
 

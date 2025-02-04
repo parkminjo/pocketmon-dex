@@ -6,10 +6,10 @@ import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { PokemonContext } from "../context/PokemonContext";
+import { ToastContainer } from "react-toastify";
 
 const PokemonCard = () => {
   const { pokemonList, addPokemon } = useContext(PokemonContext);
-
   const navigate = useNavigate();
 
   /** UI */
@@ -42,6 +42,13 @@ const PokemonCard = () => {
                 <FontAwesomeIcon icon={faRegularHeart} />
               )}
             </AddButton>
+            <ToastContainer
+              position="top-center"
+              limit={1}
+              closeButton={false}
+              autoClose={2000}
+              theme="dark"
+            />
           </Card>
         );
       })}
