@@ -3,31 +3,22 @@ import Dashboard from "../components/Dashboard";
 import styled from "styled-components";
 import PokemonList from "../components/PokemonList";
 import Header from "../components/Header";
-import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Dex = () => {
-  /** 포켓몬 6마리 state */
-  const [pokemonList, setPokemonList] = useState(
-    JSON.parse(localStorage.getItem("pokemonList")) || []
-  );
-
   /** 로컬 스토리지 저장 */
+  const pokemonList = useSelector((state) => state.pokemon);
   useEffect(() => {
     localStorage.setItem("pokemonList", JSON.stringify(pokemonList));
   }, [pokemonList]);
-
-  const dispatch = useDispatch();
 
   /** UI */
   return (
     <Div>
       <Header />
       <Container>
-        <Dashboard pokemonList={pokemonList} setPokemonList={setPokemonList} />
-        <PokemonList
-          pokemonList={pokemonList}
-          setPokemonList={setPokemonList}
-        />
+        <Dashboard />
+        <PokemonList />
       </Container>
     </Div>
   );

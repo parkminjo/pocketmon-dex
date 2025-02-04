@@ -2,15 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { removePokemon } from "../redux/\bslices/PokemonSlice";
 
-const Dashboard = ({ pokemonList, setPokemonList }) => {
-  /**
-   * 포켓몬 카드 삭제 함수
-   * @param {*} id
-   */
-  const removePokemon = (id) => {
-    setPokemonList((prev) => prev.filter((pokemon) => pokemon.id !== id));
-  };
+const Dashboard = () => {
+  const pokemonList = useSelector((state) => state.pokemon);
+  const dispatch = useDispatch();
 
   /** UI */
   return (
@@ -27,7 +24,7 @@ const Dashboard = ({ pokemonList, setPokemonList }) => {
                 <H1>{pokemon.korean_name}</H1>
               </div>
 
-              <DeleteButton onClick={() => removePokemon(pokemon.id)}>
+              <DeleteButton onClick={() => dispatch(removePokemon(pokemon.id))}>
                 <FontAwesomeIcon icon={faHeart} />
               </DeleteButton>
             </SelectedCard>
