@@ -29,7 +29,12 @@ const Dashboard = () => {
                 <H1>{pokemon.korean_name}</H1>
               </div>
 
-              <DeleteButton onClick={() => dispatch(removePokemon(pokemon.id))}>
+              <DeleteButton
+                onClick={(event) => {
+                  event.stopPropagation();
+                  dispatch(removePokemon(pokemon.id));
+                }}
+              >
                 <FontAwesomeIcon icon={faHeart} />
               </DeleteButton>
             </SelectedCard>
