@@ -43,6 +43,7 @@ const PokemonCard = () => {
               onClick={(event) => {
                 event.stopPropagation();
 
+                /** 예외상황01: 포켓몬이 이미 등록됐을 때 */
                 if (pokemonList.some((pokemon) => pokemon.id === id)) {
                   notifyAlready();
                   return;
