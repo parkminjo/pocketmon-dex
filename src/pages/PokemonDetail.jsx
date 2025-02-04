@@ -7,6 +7,7 @@ import { PokemonContext } from "../context/PokemonContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
+import { toast, ToastContainer } from "react-toastify";
 
 const PokemonDetail = () => {
   const [searchParam] = useSearchParams();
@@ -16,17 +17,30 @@ const PokemonDetail = () => {
     (pokemon) => pokemon.id === +queryId
   );
 
+  const notifyAdd = () => toast.info("포켓몬이 등록되었습니다");
+  const notifyRemove = () => toast.info("포켓몬 등록이 취소되었습니다");
+
   const { pokemonList, addPokemon, removePokemon } = useContext(PokemonContext);
 
   return (
     <Div>
       <DetailDiv>
         {pokemonList.some((pokemon) => pokemon.id === id) ? (
-          <Button onClick={() => removePokemon(id)}>
+          <Button
+            onClick={() => {
+              notifyRemove();
+              removePokemon(id);
+            }}
+          >
             <FontAwesomeIcon icon={faSolidHeart} />
           </Button>
         ) : (
-          <Button onClick={() => addPokemon(id, img_url, korean_name, types)}>
+          <Button
+            onClick={() => {
+              notifyAdd();
+              addPokemon(id, img_url, korean_name, types);
+            }}
+          >
             <FontAwesomeIcon icon={faRegularHeart} />
           </Button>
         )}
@@ -47,6 +61,13 @@ const PokemonDetail = () => {
           <CloseButton>뒤로가기</CloseButton>
         </Link>
       </DetailDiv>
+      <ToastContainer
+        position="top-center"
+        limit={1}
+        closeButton={false}
+        autoClose={1000}
+        hideProgressBar={true}
+      />
     </Div>
   );
 };

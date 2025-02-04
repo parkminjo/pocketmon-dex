@@ -2,10 +2,12 @@ import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export const PokemonContext = createContext(null);
-
+/** toast 알림창 */
 const notifyAlready = () => toast.error("이미 등록된 포켓몬입니다");
 const notifyAll = () => toast.error("포켓몬 6마리를 모두 등록하셨습니다");
+
+/** 전역 context */
+export const PokemonContext = createContext(null);
 
 export const PokemonProvider = ({ children }) => {
   const [pokemonList, setPokemonList] = useState(
