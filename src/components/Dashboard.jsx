@@ -1,13 +1,15 @@
-import React from "react";
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 import { removePokemon } from "../redux/\bslices/PokemonSlice";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const pokemonList = useSelector((state) => state.pokemon);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   /** UI */
   return (
@@ -16,7 +18,10 @@ const Dashboard = () => {
       <CardDiv>
         {pokemonList.map((pokemon) => {
           return (
-            <SelectedCard key={pokemon.id}>
+            <SelectedCard
+              key={pokemon.id}
+              onClick={() => navigate(`/detail?id=${pokemon.id}`)}
+            >
               <PokemonImg src={pokemon.img_url} alt="포켓몬사진" />
 
               <div>
@@ -87,6 +92,12 @@ const SelectedCard = styled.div`
   padding-right: 8px;
   border-radius: 1rem;
   background-color: #ffcb03;
+
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: translateY(-10px);
+    opacity: 80%;
+  }
 `;
 
 const PokemonImg = styled.img`

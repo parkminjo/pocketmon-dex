@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import Dashboard from "../components/Dashboard";
-import styled from "styled-components";
-import PokemonList from "../components/PokemonList";
-import Header from "../components/Header";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+import styled from "styled-components";
+import Dashboard from "../components/Dashboard";
+import Header from "../components/Header";
+import PokemonList from "../components/PokemonList";
 
 const Dex = () => {
   /** 로컬 스토리지 저장 */

@@ -1,11 +1,11 @@
 import React from "react";
-import MOCK_DATA from "../API/MOCK_DATA";
 import { Link, useSearchParams } from "react-router-dom";
 import styled from "styled-components";
+import MOCK_DATA from "../API/MOCK_DATA";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Slide, toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
