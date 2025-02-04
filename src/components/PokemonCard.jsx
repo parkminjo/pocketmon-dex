@@ -8,7 +8,14 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addPokemon } from "../redux/\bslices/PokemonSlice";
 
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const PokemonCard = () => {
+  /** 알림창 */
+  const notifyAlready = () => toast("이미 등록된 포켓몬입니다");
+  const notifyAll = () => toast("포켓몬 6마리를 모두 등록하셨습니다");
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const pokemonList = useSelector((state) => state.pokemon);
@@ -36,12 +43,12 @@ const PokemonCard = () => {
                 event.stopPropagation();
 
                 if (pokemonList.some((pokemon) => pokemon.id === id)) {
-                  alert("이미 등록된 포켓몬입니다");
+                  notifyAlready();
                   return;
                 }
                 /** 예외상황02: 포켓몬 6마리 모두 등록됐을 때 */
                 if (pokemonList.length > 5) {
-                  alert("포켓몬 6마리를 모두 등록하셨습니다");
+                  notifyAll();
                   return;
                 }
                 dispatch(addPokemon({ id, img_url, korean_name, types }));
@@ -53,6 +60,12 @@ const PokemonCard = () => {
                 <FontAwesomeIcon icon={faRegularHeart} />
               )}
             </AddButton>
+            <ToastContainer
+              position="top-center"
+              limit={1}
+              closeButton={false}
+              autoClose={2000}
+            />
           </Card>
         );
       })}
