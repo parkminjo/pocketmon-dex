@@ -2,8 +2,8 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 import { removePokemon } from "../redux/slices/pokemonSlice";
 
 const Dashboard = () => {
@@ -45,7 +45,7 @@ const Dashboard = () => {
           new Array(6 - pokemonList.length).fill(null).map((_, idx) => {
             return (
               <PokeballDiv key={idx}>
-                <Img src="../../img/ball.png" alt="포켓볼" />
+                <Img src="https://ifh.cc/g/B87CRh.png" alt="포켓볼" />
               </PokeballDiv>
             );
           })}
