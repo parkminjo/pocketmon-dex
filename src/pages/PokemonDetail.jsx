@@ -65,7 +65,7 @@ const PokemonDetail = () => {
         position="top-center"
         limit={1}
         closeButton={false}
-        autoClose={1000}
+        autoClose={500}
         hideProgressBar={true}
         transition={Slide}
       />
