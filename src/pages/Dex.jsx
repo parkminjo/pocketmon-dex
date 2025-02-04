@@ -10,7 +10,6 @@ const Dex = () => {
     JSON.parse(localStorage.getItem("pokemonList")) || []
   );
 
-  console.log(pokemonList);
   /** 로컬 스토리지 저장 */
   useEffect(() => {
     localStorage.setItem("pokemonList", JSON.stringify(pokemonList));
