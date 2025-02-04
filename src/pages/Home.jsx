@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <Div>
       <Button onClick={() => navigate("/dex")}>
-        <Img src="../../img/pokemonDex.webp" alt="포켓몬도감" />
+        <Img src="https://ifh.cc/g/nvSXBK.webp" alt="포켓몬도감" />
       </Button>
     </Div>
   );

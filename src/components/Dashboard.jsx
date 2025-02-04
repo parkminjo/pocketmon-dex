@@ -49,7 +49,7 @@ const Dashboard = ({ pokemonList, setPokemonList }) => {
           new Array(6 - pokemonList.length).fill(null).map((_, idx) => {
             return (
               <Pokeball key={idx}>
-                <Img src="../../img/ball.png" alt="포켓볼" />
+                <Img src="https://ifh.cc/g/B87CRh.png" alt="포켓볼" />
               </Pokeball>
             );
           })}
