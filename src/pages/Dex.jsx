@@ -1,17 +1,10 @@
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
 import styled from "styled-components";
 import Dashboard from "../components/Dashboard";
 import Header from "../components/Header";
 import PokemonList from "../components/PokemonList";
 
 const Dex = () => {
-  /** 로컬 스토리지 저장 */
-  const pokemonList = useSelector((state) => state.pokemon);
-  useEffect(() => {
-    localStorage.setItem("pokemonList", JSON.stringify(pokemonList));
-  }, [pokemonList]);
-
   /** UI */
   return (
     <Div>
