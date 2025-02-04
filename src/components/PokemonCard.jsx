@@ -5,34 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import PokemonContext from "../context/PokemonContext";
+import { PokemonContext } from "../context/PokemonContext";
 
 const PokemonCard = () => {
-  const { pokemonList, setPokemonList } = useContext(PokemonContext);
-
-  /**
-   * 포켓몬 카드 추가 함수
-   * @param {*} id
-   * @param {*} img_url
-   * @param {*} korean_name
-   * @param {*} types
-   */
-  const addPokemon = (id, img_url, korean_name, types) => {
-    /** 예외상황01: 이미 등록된 포켓몬일 때 */
-    if (pokemonList.some((pokemon) => pokemon.id === id)) {
-      alert("이미 등록된 포켓몬입니다");
-      return;
-    }
-    /** 예외상황02: 포켓몬 6마리 모두 등록됐을 때 */
-    if (pokemonList.length > 5) {
-      alert("포켓몬 6마리를 모두 등록하셨습니다");
-      return;
-    }
-
-    setPokemonList((prev) => {
-      return [...prev, { id, img_url, korean_name, types }];
-    });
-  };
+  const { pokemonList, addPokemon } = useContext(PokemonContext);
 
   const navigate = useNavigate();
 

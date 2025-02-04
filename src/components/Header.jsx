@@ -16,10 +16,10 @@ export default Header;
 const Div = styled.header`
   display: flex;
   justify-content: space-between;
-  padding: 10px 3rem 10px 3rem;
+  padding: 1rem 3rem 10px 3rem;
   background-color: #121212;
 `;
 
 const Img = styled.img`
-  width: 70px;
+  width: 80px;
 `;
