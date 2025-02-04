@@ -5,33 +5,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addPokemon } from "../redux/\bslices/PokemonSlice";
 
-const PokemonCard = ({ pokemonList, setPokemonList }) => {
-  /**
-   * 포켓몬 카드 추가 함수
-   * @param {*} id
-   * @param {*} img_url
-   * @param {*} korean_name
-   * @param {*} types
-   */
-  const addPokemon = (id, img_url, korean_name, types) => {
-    /** 예외상황01: 이미 등록된 포켓몬일 때 */
-    if (pokemonList.some((pokemon) => pokemon.id === id)) {
-      alert("이미 등록된 포켓몬입니다");
-      return;
-    }
-    /** 예외상황02: 포켓몬 6마리 모두 등록됐을 때 */
-    if (pokemonList.length > 5) {
-      alert("포켓몬 6마리를 모두 등록하셨습니다");
-      return;
-    }
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-    setPokemonList((prev) => {
-      return [...prev, { id, img_url, korean_name, types }];
-    });
-  };
+const PokemonCard = () => {
+  /** 알림창 */
+  const notifyAlready = () => toast.error("이미 등록된 포켓몬입니다");
+  const notifyAll = () => toast.error("포켓몬 6마리를 모두 등록하셨습니다");
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const pokemonList = useSelector((state) => state.pokemon);
 
   /** UI */
   return (
@@ -54,7 +41,17 @@ const PokemonCard = ({ pokemonList, setPokemonList }) => {
             <AddButton
               onClick={(event) => {
                 event.stopPropagation();
-                addPokemon(id, img_url, korean_name, types);
+
+                if (pokemonList.some((pokemon) => pokemon.id === id)) {
+                  notifyAlready();
+                  return;
+                }
+                /** 예외상황02: 포켓몬 6마리 모두 등록됐을 때 */
+                if (pokemonList.length > 5) {
+                  notifyAll();
+                  return;
+                }
+                dispatch(addPokemon({ id, img_url, korean_name, types }));
               }}
             >
               {pokemonList.some((pokemon) => pokemon.id === id) ? (
@@ -63,6 +60,13 @@ const PokemonCard = ({ pokemonList, setPokemonList }) => {
                 <FontAwesomeIcon icon={faRegularHeart} />
               )}
             </AddButton>
+            <ToastContainer
+              position="top-center"
+              limit={1}
+              closeButton={false}
+              autoClose={2000}
+              theme="dark"
+            />
           </Card>
         );
       })}
