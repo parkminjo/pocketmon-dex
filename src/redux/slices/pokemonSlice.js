@@ -9,9 +9,7 @@ export const pokemonSlice = createSlice({
   initialState,
   reducers: {
     addPokemon: (state, action) => {
-      const { id, img_url, korean_name, types } = action.payload;
-
-      return [...state, { id, img_url, korean_name, types }];
+      return [...state, action.payload];
     },
 
     removePokemon: (state, action) => {
