@@ -100,7 +100,7 @@ const SelectedCard = styled.div`
 
   transition: all 0.3s ease-in-out;
   &:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     opacity: 80%;
   }
 `;
