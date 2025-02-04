@@ -1,7 +1,13 @@
 import React from "react";
 import MOCK_DATA from "../API/MOCK_DATA";
-import { Link, useLocation, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import styled from "styled-components";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { addPokemon, removePokemon } from "../redux/\bslices/PokemonSlice";
 
 const PokemonDetail = () => {
   const [searchParam] = useSearchParams();
@@ -11,9 +17,25 @@ const PokemonDetail = () => {
     (pokemon) => pokemon.id === +queryId
   );
 
+  const pokemonList = useSelector((state) => state.pokemon);
+  const dispatch = useDispatch();
+
   return (
     <Div>
       <DetailDiv>
+        {pokemonList.some((pokemon) => pokemon.id === id) ? (
+          <Button onClick={() => dispatch(removePokemon(id))}>
+            <FontAwesomeIcon icon={faSolidHeart} />
+          </Button>
+        ) : (
+          <Button
+            onClick={() =>
+              dispatch(addPokemon({ id, img_url, korean_name, types }))
+            }
+          >
+            <FontAwesomeIcon icon={faRegularHeart} />
+          </Button>
+        )}
         <p>NO. {id}</p>
         <H1>{korean_name}</H1>
 
@@ -57,6 +79,7 @@ const DetailDiv = styled.div`
   background-color: white;
   border: 8px solid #ffcb03;
   border-radius: 1rem;
+  position: absolute;
 `;
 
 const CloseButton = styled.button`
@@ -101,4 +124,19 @@ const P = styled.p`
   background-size: cover;
   text-align: center;
   width: 100%;
+`;
+
+const Button = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  border: none;
+  background-color: transparent;
+  font-size: 30px;
+  color: #ee4e4e;
+  cursor: pointer;
+  &:hover {
+    color: #697076;
+  }
 `;
