@@ -3,20 +3,17 @@ import Dashboard from "../components/Dashboard";
 import styled from "styled-components";
 import PokemonList from "../components/PokemonList";
 import Header from "../components/Header";
-import { PokemonProvider } from "../context/PokemonContext";
 
 const Dex = () => {
   /** UI */
   return (
-    <PokemonProvider>
-      <Div>
-        <Header />
-        <Container>
-          <Dashboard />
-          <PokemonList />
-        </Container>
-      </Div>
-    </PokemonProvider>
+    <Div>
+      <Header />
+      <Container>
+        <Dashboard />
+        <PokemonList />
+      </Container>
+    </Div>
   );
 };
 
