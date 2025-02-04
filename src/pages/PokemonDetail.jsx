@@ -6,6 +6,9 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
+import { Slide, toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { useDispatch, useSelector } from "react-redux";
 import { addPokemon, removePokemon } from "../redux/\bslices/PokemonSlice";
 
@@ -17,6 +20,9 @@ const PokemonDetail = () => {
     (pokemon) => pokemon.id === +queryId
   );
 
+  const notifyAdd = () => toast.info("포켓몬이 등록되었습니다");
+  const notifyRemove = () => toast.info("포켓몬 등록이 취소되었습니다");
+
   const pokemonList = useSelector((state) => state.pokemon);
   const dispatch = useDispatch();
 
@@ -24,14 +30,20 @@ const PokemonDetail = () => {
     <Div>
       <DetailDiv>
         {pokemonList.some((pokemon) => pokemon.id === id) ? (
-          <Button onClick={() => dispatch(removePokemon(id))}>
+          <Button
+            onClick={() => {
+              notifyRemove();
+              dispatch(removePokemon(id));
+            }}
+          >
             <FontAwesomeIcon icon={faSolidHeart} />
           </Button>
         ) : (
           <Button
-            onClick={() =>
-              dispatch(addPokemon({ id, img_url, korean_name, types }))
-            }
+            onClick={() => {
+              notifyAdd();
+              dispatch(addPokemon({ id, img_url, korean_name, types }));
+            }}
           >
             <FontAwesomeIcon icon={faRegularHeart} />
           </Button>
@@ -52,6 +64,14 @@ const PokemonDetail = () => {
         <Link to="/dex">
           <CloseButton>뒤로가기</CloseButton>
         </Link>
+        <ToastContainer
+          position="top-center"
+          limit={1}
+          closeButton={false}
+          autoClose={500}
+          hideProgressBar={true}
+          transition={Slide}
+        />
       </DetailDiv>
     </Div>
   );

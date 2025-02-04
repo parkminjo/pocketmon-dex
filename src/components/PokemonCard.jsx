@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
 
-import { toast, ToastContainer } from "react-toastify";
+import { Slide, toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const PokemonCard = () => {
@@ -67,6 +67,7 @@ const PokemonCard = () => {
               closeButton={false}
               autoClose={1000}
               theme="dark"
+              transition={Slide}
             />
           </Card>
         );
