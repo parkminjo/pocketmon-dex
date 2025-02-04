@@ -92,7 +92,7 @@ const Card = styled.div`
 
   transition: all 0.3s ease-in-out;
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
     opacity: 80%;
   }
 `;
