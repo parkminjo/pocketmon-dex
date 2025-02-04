@@ -1,9 +1,12 @@
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Dashboard = ({ pokemonList, setPokemonList }) => {
+  const navigate = useNavigate();
+
   /**
    * 포켓몬 카드 삭제 함수
    * @param {*} id
@@ -19,7 +22,10 @@ const Dashboard = ({ pokemonList, setPokemonList }) => {
       <CardDiv>
         {pokemonList.map((pokemon) => {
           return (
-            <SelectedCard key={pokemon.id}>
+            <SelectedCard
+              key={pokemon.id}
+              onClick={() => navigate(`/detail?id=${pokemon.id}`)}
+            >
               <PokemonImg src={pokemon.img_url} alt="포켓몬사진" />
 
               <div>
@@ -27,7 +33,12 @@ const Dashboard = ({ pokemonList, setPokemonList }) => {
                 <H1>{pokemon.korean_name}</H1>
               </div>
 
-              <DeleteButton onClick={() => removePokemon(pokemon.id)}>
+              <DeleteButton
+                onClick={(event) => {
+                  event.stopPropagation();
+                  removePokemon(pokemon.id);
+                }}
+              >
                 <FontAwesomeIcon icon={faHeart} />
               </DeleteButton>
             </SelectedCard>
@@ -90,6 +101,12 @@ const SelectedCard = styled.div`
   padding-right: 8px;
   border-radius: 1rem;
   background-color: #ffcb03;
+
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: translateY(-5px);
+    opacity: 80%;
+  }
 `;
 
 const PokemonImg = styled.img`

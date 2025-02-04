@@ -98,11 +98,9 @@ const Card = styled.div`
   border: 4px solid #ffcb03;
   border-radius: 1rem;
 
+  transition: all 0.3s ease-in-out;
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 0 0 10px 1px #acb5bd;
-    transition-duration: 0.2s;
-    transition-timing-function: ease-in-out;
     opacity: 80%;
   }
 `;
