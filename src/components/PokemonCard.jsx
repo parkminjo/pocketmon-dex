@@ -49,6 +49,7 @@ const PokemonCard = () => {
               closeButton={false}
               autoClose={1000}
               theme="dark"
+              transition={Slide}
             />
           </Card>
         );
