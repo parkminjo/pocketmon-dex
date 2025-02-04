@@ -1,7 +1,7 @@
 import React from "react";
-import MOCK_DATA from "../API/MOCK_DATA";
-import { Link, useLocation, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import styled from "styled-components";
+import MOCK_DATA from "../API/MOCK_DATA";
 
 const PokemonDetail = () => {
   const [searchParam] = useSearchParams();

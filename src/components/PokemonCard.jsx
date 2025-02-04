@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import MOCK_DATA from "../API/MOCK_DATA";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import MOCK_DATA from "../API/MOCK_DATA";
 
-import { toast, ToastContainer } from "react-toastify";
+import { Slide, toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const PokemonCard = ({ pokemonList, setPokemonList }) => {
@@ -75,6 +75,7 @@ const PokemonCard = ({ pokemonList, setPokemonList }) => {
               closeButton={false}
               autoClose={1000}
               theme="dark"
+              transition={Slide}
             />
           </Card>
         );
