@@ -12,7 +12,7 @@ const Dashboard = () => {
 
   /** UI */
   return (
-    <Div>
+    <CardContainer>
       <H2>나만의 포켓몬</H2>
       <CardDiv>
         {pokemonList.map((pokemon) => {
@@ -49,14 +49,14 @@ const Dashboard = () => {
             );
           })}
       </CardDiv>
-    </Div>
+    </CardContainer>
   );
 };
 
 export default Dashboard;
 
 /** styled component */
-const Div = styled.div`
+const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
