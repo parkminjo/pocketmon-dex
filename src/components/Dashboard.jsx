@@ -7,14 +7,17 @@ import styled from "styled-components";
 import { removePokemon } from "../redux/slices/pokemonSlice";
 
 const Dashboard = () => {
+  /** 사용자가 등록한 포켓몬 리스트 */
   const pokemonList = useSelector((state) => state.pokemon);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  /** UI */
+  /** 사용자가 등록한 포켓몬 카드 UI */
   return (
     <CardContainer>
       <H2>나만의 포켓몬</H2>
+
       <CardDiv>
         {pokemonList.map((pokemon) => {
           return (

@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import PokemonList from "../components/PokemonList";
 
 const Dex = () => {
-  /** UI */
+  /** 포켓몬 도감 UI */
   return (
     <Div>
       <Header />

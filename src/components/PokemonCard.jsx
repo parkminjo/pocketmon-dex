@@ -13,15 +13,13 @@ import { Slide, toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const PokemonCard = () => {
-  /** 알림창 */
-  const notifyAlready = () => toast.error("이미 등록된 포켓몬입니다");
-  const notifyAll = () => toast.error("포켓몬 6마리를 모두 등록하셨습니다");
+  /** 사용자가 등록한 포켓몬 리스트 */
+  const pokemonList = useSelector((state) => state.pokemon);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const pokemonList = useSelector((state) => state.pokemon);
 
-  /** UI */
+  /** 포켓몬 카드 UI */
   return (
     <>
       {MOCK_DATA.map((pokemon) => {
@@ -45,12 +43,12 @@ const PokemonCard = () => {
 
                 /** 예외상황01: 포켓몬이 이미 등록됐을 때 */
                 if (pokemonList.some((pokemon) => pokemon.id === id)) {
-                  notifyAlready();
+                  toast.error("이미 등록된 포켓몬입니다");
                   return;
                 }
                 /** 예외상황02: 포켓몬 6마리 모두 등록됐을 때 */
                 if (pokemonList.length > 5) {
-                  notifyAll();
+                  toast.error("포켓몬 6마리를 모두 등록하셨습니다");
                   return;
                 }
                 dispatch(addPokemon({ id, img_url, korean_name, types }));

@@ -13,6 +13,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { addPokemon, removePokemon } from "../redux/slices/pokemonSlice";
 
 const PokemonDetail = () => {
+  /** 사용자가 등록한 포켓몬 리스트 */
+  const pokemonList = useSelector((state) => state.pokemon);
+
+  /** 클릭한 queryString 가져오기 */
   const [searchParam] = useSearchParams();
   const queryId = searchParam.get("id");
 
@@ -20,19 +24,16 @@ const PokemonDetail = () => {
     (pokemon) => pokemon.id === +queryId
   );
 
-  const notifyAdd = () => toast.info("포켓몬이 등록되었습니다");
-  const notifyRemove = () => toast.info("포켓몬 등록이 취소되었습니다");
-
-  const pokemonList = useSelector((state) => state.pokemon);
   const dispatch = useDispatch();
 
+  /** 포켓몬 정보 페이지 UI */
   return (
     <Div>
       <DetailDiv>
         {pokemonList.some((pokemon) => pokemon.id === id) ? (
           <Button
             onClick={() => {
-              notifyRemove();
+              toast.info("포켓몬 등록이 취소되었습니다");
               dispatch(removePokemon(id));
             }}
           >
@@ -41,7 +42,7 @@ const PokemonDetail = () => {
         ) : (
           <Button
             onClick={() => {
-              notifyAdd();
+              toast.info("포켓몬이 등록되었습니다");
               dispatch(addPokemon({ id, img_url, korean_name, types }));
             }}
           >
