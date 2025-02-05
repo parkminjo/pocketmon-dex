@@ -10,7 +10,7 @@ const Dashboard = () => {
 
   const navigate = useNavigate();
 
-  /** UI */
+  /** 사용자가 등록한 포켓몬 카드 UI */
   return (
     <CardContainer>
       <H2>나만의 포켓몬</H2>

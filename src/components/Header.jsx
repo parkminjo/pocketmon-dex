@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Header = () => {
-  /** UI */
+  /** Header UI */
   return (
     <Div>
       <Img src="https://ifh.cc/g/WOXQw7.png" alt="로고" />

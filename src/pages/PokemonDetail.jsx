@@ -1,15 +1,16 @@
 import React, { useContext } from "react";
-import MOCK_DATA from "../API/MOCK_DATA";
 import { Link, useSearchParams } from "react-router-dom";
 import styled from "styled-components";
+import MOCK_DATA from "../API/MOCK_DATA";
 import { PokemonContext } from "../context/PokemonContext";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Slide, toast, ToastContainer } from "react-toastify";
 
 const PokemonDetail = () => {
+  /** 클릭한 페이지 queryString 가져오기 */
   const [searchParam] = useSearchParams();
   const queryId = searchParam.get("id");
 
@@ -17,18 +18,16 @@ const PokemonDetail = () => {
     (pokemon) => pokemon.id === +queryId
   );
 
-  const notifyAdd = () => toast.info("포켓몬이 등록되었습니다");
-  const notifyRemove = () => toast.info("포켓몬 등록이 취소되었습니다");
-
   const { pokemonList, addPokemon, removePokemon } = useContext(PokemonContext);
 
+  /** 포켓몬 정보 페이지 UI */
   return (
     <Div>
       <DetailDiv>
         {pokemonList.some((pokemon) => pokemon.id === id) ? (
           <Button
             onClick={() => {
-              notifyRemove();
+              toast.info("포켓몬 등록이 취소되었습니다");
               removePokemon(id);
             }}
           >
@@ -37,7 +36,7 @@ const PokemonDetail = () => {
         ) : (
           <Button
             onClick={() => {
-              notifyAdd();
+              toast.info("포켓몬이 등록되었습니다");
               addPokemon(id, img_url, korean_name, types);
             }}
           >

@@ -13,7 +13,7 @@ const PokemonCard = () => {
   const { pokemonList, addPokemon } = useContext(PokemonContext);
   const navigate = useNavigate();
 
-  /** UI */
+  /** 포켓몬 카드 UI */
   return (
     <>
       {MOCK_DATA.map((pokemon) => {
