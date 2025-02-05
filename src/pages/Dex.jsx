@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import PokemonList from "../components/PokemonList";
 
 const Dex = () => {
-  /** 포켓몬 6마리 state */
+  /** 사용자가 등록한 포켓몬 state */
   const [pokemonList, setPokemonList] = useState(
     JSON.parse(localStorage.getItem("pokemonList")) || []
   );
@@ -15,7 +15,7 @@ const Dex = () => {
     localStorage.setItem("pokemonList", JSON.stringify(pokemonList));
   }, [pokemonList]);
 
-  /** UI */
+  /** 포켓몬 도감 UI */
   return (
     <Div>
       <Header />

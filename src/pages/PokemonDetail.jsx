@@ -4,6 +4,7 @@ import styled from "styled-components";
 import MOCK_DATA from "../API/MOCK_DATA";
 
 const PokemonDetail = () => {
+  /** 클릭한 페이지의 queryString 가져오기 */
   const [searchParam] = useSearchParams();
   const queryId = searchParam.get("id");
 

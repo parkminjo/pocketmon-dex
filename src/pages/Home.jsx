@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Home = () => {
   const navigate = useNavigate();
 
-  /** UI */
+  /** 홈 UI */
   return (
     <Div>
       <Button onClick={() => navigate("/dex")}>
