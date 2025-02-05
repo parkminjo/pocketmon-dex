@@ -3,7 +3,7 @@ import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
 
 const PokemonList = () => {
-  /** 포켓몬 카드 전체를 보여주는 UI */
+  /** 포켓몬 전체 카드 리스트 UI */
   return (
     <Div>
       <PokemonCard />

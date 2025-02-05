@@ -12,9 +12,9 @@ const App = () => {
   }, [pokemonList]);
 
   return (
-    <div>
+    <>
       <Router />
-    </div>
+    </>
   );
 };
 
