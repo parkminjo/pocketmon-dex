@@ -1,8 +1,47 @@
-# React + Vite
+# Personal Project: 포켓몬 도감
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 🕰️ 개발 기간
+25.02.03 ~ 25.02.05
 
-Currently, two official plugins are available:
+### ⚙️ 기술 스택
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🖥 데모
+[포켓몬 도감](https://dex-mon.vercel.app/)
+
+---
+## 📢 프로젝트 소개
+
+
+
+---
+
+## 🧬 프로젝트 구조
+```
+📦src
+ ┣ 📂API
+ ┃ ┗ 📜MOCK_DATA.js
+ ┣ 📂assets
+ ┃ ┗ 📜react.svg
+ ┣ 📂components
+ ┃ ┣ 📜Dashboard.jsx
+ ┃ ┣ 📜Header.jsx
+ ┃ ┣ 📜PokemonCard.jsx
+ ┃ ┗ 📜PokemonList.jsx
+ ┣ 📂pages
+ ┃ ┣ 📜Dex.jsx
+ ┃ ┣ 📜Home.jsx
+ ┃ ┗ 📜PokemonDetail.jsx
+ ┣ 📂redux
+ ┃ ┣ 📂config
+ ┃ ┃ ┗ 📜store.js
+ ┃ ┗ 📂slices
+ ┃ ┃ ┗ 📜pokemonSlice.js
+ ┣ 📂shared
+ ┃ ┗ 📜Router.jsx
+ ┣ 📜.DS_Store
+ ┣ 📜App.css
+ ┣ 📜App.jsx
+ ┣ 📜index.css
+ ┗ 📜main.jsx
+```
