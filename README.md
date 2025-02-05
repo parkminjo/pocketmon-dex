@@ -1,4 +1,4 @@
-# Personal Project: 포켓몬 도감
+# Personal Project: 포켓몬 도감 <img src="https://ifh.cc/g/B87CRh.png" width="30" height="30" />
 
 ### 🕰️ 개발 기간
 25.02.03 ~ 25.02.05
