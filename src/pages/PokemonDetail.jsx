@@ -37,7 +37,7 @@ const PokemonDetail = () => {
           <Button
             onClick={() => {
               toast.info("포켓몬이 등록되었습니다");
-              addPokemon(id, img_url, korean_name, types);
+              addPokemon({ id, img_url, korean_name, types });
             }}
           >
             <FontAwesomeIcon icon={faRegularHeart} />
