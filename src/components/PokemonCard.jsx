@@ -34,7 +34,7 @@ const PokemonCard = () => {
             <AddButton
               onClick={(event) => {
                 event.stopPropagation();
-                addPokemon(id, img_url, korean_name, types);
+                addPokemon(pokemon);
               }}
             >
               {pokemonList.some((pokemon) => pokemon.id === id) ? (

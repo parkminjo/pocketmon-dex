@@ -22,9 +22,9 @@ export const PokemonProvider = ({ children }) => {
    * @param {*} korean_name
    * @param {*} types
    */
-  const addPokemon = (id, img_url, korean_name, types) => {
+  const addPokemon = (selectedPokemon) => {
     /** 예외상황01: 이미 등록된 포켓몬일 때 */
-    if (pokemonList.some((pokemon) => pokemon.id === id)) {
+    if (pokemonList.some((pokemon) => pokemon.id === selectedPokemon.id)) {
       toast.error("이미 등록된 포켓몬입니다");
       return;
     }
@@ -35,7 +35,7 @@ export const PokemonProvider = ({ children }) => {
     }
 
     setPokemonList((prev) => {
-      return [...prev, { id, img_url, korean_name, types }];
+      return [...prev, selectedPokemon];
     });
   };
 
