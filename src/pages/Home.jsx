@@ -5,12 +5,10 @@ import styled from "styled-components";
 const Home = () => {
   /** 홈 UI */
   return (
-    <Div>
-      <Link to={"/dex"}>
-        <Button>
-          <Img src="https://ifh.cc/g/nvSXBK.webp" alt="포켓몬도감" />
-        </Button>
-      </Link>
+    <Div to={"/dex"}>
+      <Button>
+        <Img src="https://ifh.cc/g/nvSXBK.webp" alt="포켓몬도감" />
+      </Button>
     </Div>
   );
 };
@@ -18,7 +16,7 @@ const Home = () => {
 export default Home;
 
 /** styled component */
-const Div = styled.div`
+const Div = styled(Link)`
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -62,9 +62,7 @@ const PokemonDetail = () => {
 
         <P>{description}</P>
 
-        <Link to="/dex">
-          <CloseButton>뒤로가기</CloseButton>
-        </Link>
+        <CloseButton to="/dex">뒤로가기</CloseButton>
       </DetailDiv>
       <ToastContainer
         position="top-center"
@@ -103,13 +101,15 @@ const DetailDiv = styled.div`
   position: absolute;
 `;
 
-const CloseButton = styled.button`
+const CloseButton = styled(Link)`
   border: none;
   font-size: 1rem;
   background-color: #ee4e4e;
   color: white;
   padding: 6px;
   border-radius: 5px;
+  text-decoration: none;
+
   &:hover {
     background-color: #bf3434;
   }
