@@ -2,7 +2,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { removePokemon } from "../redux/slices/pokemonSlice";
 
@@ -11,6 +11,7 @@ const Dashboard = () => {
   const pokemonList = useSelector((state) => state.pokemon);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   /** 사용자가 등록한 포켓몬 카드 UI */
   return (
@@ -20,7 +21,10 @@ const Dashboard = () => {
       <CardDiv>
         {pokemonList.map((pokemon) => {
           return (
-            <SelectedCard key={pokemon.id} to={`/detail?id=${pokemon.id}`}>
+            <SelectedCard
+              key={pokemon.id}
+              onClick={() => navigate(`/detail?id=${pokemon.id}`)}
+            >
               <PokemonImg src={pokemon.img_url} alt="포켓몬사진" />
 
               <div>
@@ -87,7 +91,7 @@ const Img = styled.img`
   object-fit: cover;
 `;
 
-const SelectedCard = styled(Link)`
+const SelectedCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -96,8 +100,6 @@ const SelectedCard = styled(Link)`
   padding-right: 8px;
   border-radius: 1rem;
   background-color: #ffcb03;
-  text-decoration: none;
-  color: #121212;
 
   transition: all 0.3s ease-in-out;
   &:hover {

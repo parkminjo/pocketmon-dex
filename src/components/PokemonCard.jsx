@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import MOCK_DATA from "../API/MOCK_DATA";
 import { addPokemon } from "../redux/slices/pokemonSlice";
@@ -16,6 +16,7 @@ const PokemonCard = () => {
   /** 사용자가 등록한 포켓몬 리스트 */
   const pokemonList = useSelector((state) => state.pokemon);
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   /** 포켓몬 카드 UI */
@@ -24,7 +25,12 @@ const PokemonCard = () => {
       {MOCK_DATA.map((pokemon) => {
         const { id, img_url, korean_name, types } = pokemon;
         return (
-          <Card key={id} to={`/detail?id=${id}`}>
+          <Card
+            key={id}
+            onClick={() => {
+              navigate(`/detail?id=${id}`);
+            }}
+          >
             <P>No. {id}</P>
             <H1>{korean_name}</H1>
 
@@ -77,7 +83,7 @@ const PokemonCard = () => {
 export default PokemonCard;
 
 /** styled component */
-const Card = styled(Link)`
+const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -87,8 +93,6 @@ const Card = styled(Link)`
   background-color: white;
   border: 4px solid #ffcb03;
   border-radius: 1rem;
-  text-decoration: none;
-  color: #121212;
 
   transition: all 0.3s ease-in-out;
   &:hover {
