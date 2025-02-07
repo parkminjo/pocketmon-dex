@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import MOCK_DATA from "../API/MOCK_DATA";
 import { addPokemon } from "../redux/slices/pokemonSlice";
@@ -11,6 +11,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { Slide, toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+import { ParagraphStyle, TitleStyle } from "../styled-component/CommonStyle";
 
 const PokemonCard = () => {
   /** 사용자가 등록한 포켓몬 리스트 */
@@ -31,8 +33,10 @@ const PokemonCard = () => {
               navigate(`/detail?id=${id}`);
             }}
           >
-            <P>No. {id}</P>
-            <H1>{korean_name}</H1>
+            <ParagraphStyle $fontSize="16px" $marginBottom="5px">
+              No. {id}
+            </ParagraphStyle>
+            <TitleStyle $fontSize="20px">{korean_name}</TitleStyle>
 
             <img src={img_url} alt="포켓몬 사진" />
 
@@ -99,15 +103,6 @@ const Card = styled.div`
     transform: translateY(-10px);
     opacity: 80%;
   }
-`;
-
-const P = styled.p`
-  font-size: 16px;
-  margin-bottom: 8px;
-`;
-
-const H1 = styled.h1`
-  font-size: 20px;
 `;
 
 const TypesDiv = styled.div`
