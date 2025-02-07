@@ -5,16 +5,16 @@ import PokemonCard from "./PokemonCard";
 const PokemonList = () => {
   /** 포켓몬 전체 카드 리스트 UI */
   return (
-    <Div>
+    <Container>
       <PokemonCard />
-    </Div>
+    </Container>
   );
 };
 
 export default PokemonList;
 
 /** styled component */
-const Div = styled.div`
+const Container = styled.div`
   margin-top: 32px;
   display: flex;
   flex-wrap: wrap;

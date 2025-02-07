@@ -25,6 +25,7 @@ const PokemonCard = () => {
     <>
       {MOCK_DATA.map((pokemon) => {
         const { id, img_url, korean_name, types } = pokemon;
+
         return (
           <S.CardBox
             key={id}
