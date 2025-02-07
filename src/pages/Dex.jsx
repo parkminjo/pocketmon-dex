@@ -7,20 +7,20 @@ import PokemonList from "../components/PokemonList";
 const Dex = () => {
   /** 포켓몬 도감 UI */
   return (
-    <Div>
+    <DexContainer>
       <Header />
       <Container>
         <Dashboard />
         <PokemonList />
       </Container>
-    </Div>
+    </DexContainer>
   );
 };
 
 export default Dex;
 
 /** styled component */
-const Div = styled.div`
+const DexContainer = styled.div`
   background-color: #121212;
   min-height: 100vh;
 `;
