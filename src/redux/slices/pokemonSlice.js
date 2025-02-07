@@ -9,11 +9,11 @@ export const pokemonSlice = createSlice({
   initialState,
   reducers: {
     addPokemon: (state, action) => {
-      return [...state, action.payload];
+      state.push(action.payload);
     },
 
     removePokemon: (state, action) => {
-      return [...state].filter((pokemon) => pokemon.id !== action.payload);
+      return state.filter((pokemon) => pokemon.id !== action.payload);
     },
   },
 });
