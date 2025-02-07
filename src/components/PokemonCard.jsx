@@ -1,27 +1,23 @@
+import React from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import MOCK_DATA from "../API/MOCK_DATA";
+
 import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import MOCK_DATA from "../API/MOCK_DATA";
 
 import { Slide, toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const PokemonCard = ({ pokemonList, setPokemonList }) => {
-  const navigate = useNavigate();
-
   /**
-   * 포켓몬 카드 추가 함수
-   * @param {*} id
-   * @param {*} img_url
-   * @param {*} korean_name
-   * @param {*} types
+   * 포켓몬 추가 함수
+   * @param {*} selectedPokemon
    */
-  const addPokemon = (id, img_url, korean_name, types) => {
-    /** 예외상황01: 이미 등록된 포켓몬일 때 */
-    if (pokemonList.some((pokemon) => pokemon.id === id)) {
+  const addPokemon = (selectedPokemon) => {
+    /** 예외상황01: 포켓몬이 이미 등록됐을 때 */
+    if (pokemonList.some((pokemon) => pokemon.id === selectedPokemon.id)) {
       toast.error("이미 등록된 포켓몬입니다");
       return;
     }
@@ -30,10 +26,7 @@ const PokemonCard = ({ pokemonList, setPokemonList }) => {
       toast.error("포켓몬 6마리를 모두 등록하셨습니다");
       return;
     }
-
-    setPokemonList((prev) => {
-      return [...prev, { id, img_url, korean_name, types }];
-    });
+    setPokemonList((prev) => [...prev, selectedPokemon]);
   };
 
   /** 포켓몬 카드 UI */
@@ -42,7 +35,7 @@ const PokemonCard = ({ pokemonList, setPokemonList }) => {
       {MOCK_DATA.map((pokemon) => {
         const { id, img_url, korean_name, types } = pokemon;
         return (
-          <Card key={id} onClick={() => navigate(`/detail?id=${id}`)}>
+          <Card key={id} onClick={() => Navigate(`/detail?id=${id}`)}>
             <P>No. {id}</P>
             <H1>{korean_name}</H1>
 
@@ -57,7 +50,8 @@ const PokemonCard = ({ pokemonList, setPokemonList }) => {
             <AddButton
               onClick={(event) => {
                 event.stopPropagation();
-                addPokemon(id, img_url, korean_name, types);
+
+                addPokemon(pokemon);
               }}
             >
               {pokemonList.some((pokemon) => pokemon.id === id) ? (
