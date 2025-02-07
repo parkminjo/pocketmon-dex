@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import MOCK_DATA from "../API/MOCK_DATA";
 
@@ -11,6 +11,8 @@ import { Slide, toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const PokemonCard = ({ pokemonList, setPokemonList }) => {
+  const navigate = useNavigate();
+
   /**
    * 포켓몬 추가 함수
    * @param {*} selectedPokemon
@@ -35,7 +37,7 @@ const PokemonCard = ({ pokemonList, setPokemonList }) => {
       {MOCK_DATA.map((pokemon) => {
         const { id, img_url, korean_name, types } = pokemon;
         return (
-          <Card key={id} onClick={() => Navigate(`/detail?id=${id}`)}>
+          <Card key={id} onClick={() => navigate(`/detail?id=${id}`)}>
             <P>No. {id}</P>
             <H1>{korean_name}</H1>
 
