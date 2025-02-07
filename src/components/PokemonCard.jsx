@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import MOCK_DATA from "../API/MOCK_DATA";
 import { addPokemon } from "../redux/slices/pokemonSlice";
@@ -16,7 +16,6 @@ const PokemonCard = () => {
   /** 사용자가 등록한 포켓몬 리스트 */
   const pokemonList = useSelector((state) => state.pokemon);
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   /** 포켓몬 카드 UI */
@@ -25,50 +24,52 @@ const PokemonCard = () => {
       {MOCK_DATA.map((pokemon) => {
         const { id, img_url, korean_name, types } = pokemon;
         return (
-          <Card key={id} onClick={() => navigate(`/detail?id=${id}`)}>
-            <P>No. {id}</P>
-            <H1>{korean_name}</H1>
+          <Link to={`/detail?id=${id}`}>
+            <Card key={id}>
+              <P>No. {id}</P>
+              <H1>{korean_name}</H1>
 
-            <img src={img_url} alt="포켓몬 사진" />
+              <img src={img_url} alt="포켓몬 사진" />
 
-            <TypesDiv>
-              {types.map((type) => (
-                <Type key={type}>{type}</Type>
-              ))}
-            </TypesDiv>
+              <TypesDiv>
+                {types.map((type) => (
+                  <Type key={type}>{type}</Type>
+                ))}
+              </TypesDiv>
 
-            <AddButton
-              onClick={(event) => {
-                event.stopPropagation();
+              <AddButton
+                onClick={(event) => {
+                  event.stopPropagation();
 
-                /** 예외상황01: 포켓몬이 이미 등록됐을 때 */
-                if (pokemonList.some((pokemon) => pokemon.id === id)) {
-                  toast.error("이미 등록된 포켓몬입니다");
-                  return;
-                }
-                /** 예외상황02: 포켓몬 6마리 모두 등록됐을 때 */
-                if (pokemonList.length > 5) {
-                  toast.error("포켓몬 6마리를 모두 등록하셨습니다");
-                  return;
-                }
-                dispatch(addPokemon({ id, img_url, korean_name, types }));
-              }}
-            >
-              {pokemonList.some((pokemon) => pokemon.id === id) ? (
-                <FontAwesomeIcon icon={faSolidHeart} />
-              ) : (
-                <FontAwesomeIcon icon={faRegularHeart} />
-              )}
-            </AddButton>
-            <ToastContainer
-              position="top-center"
-              limit={1}
-              closeButton={false}
-              autoClose={1000}
-              theme="dark"
-              transition={Slide}
-            />
-          </Card>
+                  /** 예외상황01: 포켓몬이 이미 등록됐을 때 */
+                  if (pokemonList.some((pokemon) => pokemon.id === id)) {
+                    toast.error("이미 등록된 포켓몬입니다");
+                    return;
+                  }
+                  /** 예외상황02: 포켓몬 6마리 모두 등록됐을 때 */
+                  if (pokemonList.length > 5) {
+                    toast.error("포켓몬 6마리를 모두 등록하셨습니다");
+                    return;
+                  }
+                  dispatch(addPokemon({ id, img_url, korean_name, types }));
+                }}
+              >
+                {pokemonList.some((pokemon) => pokemon.id === id) ? (
+                  <FontAwesomeIcon icon={faSolidHeart} />
+                ) : (
+                  <FontAwesomeIcon icon={faRegularHeart} />
+                )}
+              </AddButton>
+              <ToastContainer
+                position="top-center"
+                limit={1}
+                closeButton={false}
+                autoClose={1000}
+                theme="dark"
+                transition={Slide}
+              />
+            </Card>
+          </Link>
         );
       })}
     </>

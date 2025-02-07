@@ -1,16 +1,16 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Home = () => {
-  const navigate = useNavigate();
-
   /** 홈 UI */
   return (
     <Div>
-      <Button onClick={() => navigate("/dex")}>
-        <Img src="https://ifh.cc/g/nvSXBK.webp" alt="포켓몬도감" />
-      </Button>
+      <Link to={"/dex"}>
+        <Button>
+          <Img src="https://ifh.cc/g/nvSXBK.webp" alt="포켓몬도감" />
+        </Button>
+      </Link>
     </Div>
   );
 };
