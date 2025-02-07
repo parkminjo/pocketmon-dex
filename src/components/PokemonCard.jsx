@@ -43,17 +43,17 @@ const PokemonCard = () => {
                 <FontAwesomeIcon icon={faRegularHeart} />
               )}
             </AddButton>
-            <ToastContainer
-              position="top-center"
-              limit={1}
-              closeButton={false}
-              autoClose={1000}
-              theme="dark"
-              transition={Slide}
-            />
           </Card>
         );
       })}
+      <ToastContainer
+        position="top-center"
+        limit={1}
+        closeButton={false}
+        autoClose={1000}
+        theme="dark"
+        transition={Slide}
+      />
     </>
   );
 };
