@@ -65,15 +65,15 @@ const PokemonDetail = () => {
         <Link to="/dex">
           <CloseButton>뒤로가기</CloseButton>
         </Link>
-        <ToastContainer
-          position="top-center"
-          limit={1}
-          closeButton={false}
-          autoClose={500}
-          hideProgressBar={true}
-          transition={Slide}
-        />
       </DetailDiv>
+      <ToastContainer
+        position="top-center"
+        limit={1}
+        closeButton={false}
+        autoClose={500}
+        hideProgressBar={true}
+        transition={Slide}
+      />
     </Div>
   );
 };
