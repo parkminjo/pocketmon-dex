@@ -32,7 +32,7 @@ const Dashboard = () => {
               <S.PokemonImg src={pokemon.img_url} alt="포켓몬사진" />
 
               <div>
-                <ParagraphStyle $fontSize="14px" $marginBottom="5px">
+                <ParagraphStyle $fontSize="16px" $marginBottom="5px">
                   NO. {pokemon.id}
                 </ParagraphStyle>
                 <TitleStyle $fontSize="20px">{pokemon.korean_name}</TitleStyle>

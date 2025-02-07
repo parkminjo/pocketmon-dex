@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import MOCK_DATA from "../API/MOCK_DATA";
 import { addPokemon } from "../redux/slices/pokemonSlice";
 
@@ -10,9 +9,9 @@ import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { Slide, toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import { ParagraphStyle, TitleStyle } from "../styled-component/CommonStyle";
+import { PokemonCardStyle as S } from "../styled-component/PokemonCardStyle";
 
 const PokemonCard = () => {
   /** 사용자가 등록한 포켓몬 리스트 */
@@ -27,7 +26,7 @@ const PokemonCard = () => {
       {MOCK_DATA.map((pokemon) => {
         const { id, img_url, korean_name, types } = pokemon;
         return (
-          <Card
+          <S.CardBox
             key={id}
             onClick={() => {
               navigate(`/detail?id=${id}`);
@@ -40,13 +39,13 @@ const PokemonCard = () => {
 
             <img src={img_url} alt="포켓몬 사진" />
 
-            <TypesDiv>
+            <S.TypesBox>
               {types.map((type) => (
-                <Type key={type}>{type}</Type>
+                <S.Type key={type}>{type}</S.Type>
               ))}
-            </TypesDiv>
+            </S.TypesBox>
 
-            <AddButton
+            <S.AddButton
               onClick={(event) => {
                 event.stopPropagation();
 
@@ -68,8 +67,8 @@ const PokemonCard = () => {
               ) : (
                 <FontAwesomeIcon icon={faRegularHeart} />
               )}
-            </AddButton>
-          </Card>
+            </S.AddButton>
+          </S.CardBox>
         );
       })}
       <ToastContainer
@@ -85,48 +84,3 @@ const PokemonCard = () => {
 };
 
 export default PokemonCard;
-
-/** styled component */
-const Card = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 200px;
-  height: 260px;
-  background-color: white;
-  border: 4px solid #ffcb03;
-  border-radius: 1rem;
-
-  transition: all 0.3s ease-in-out;
-  &:hover {
-    transform: translateY(-10px);
-    opacity: 80%;
-  }
-`;
-
-const TypesDiv = styled.div`
-  display: flex;
-  gap: 6px;
-  margin: 10px 0 1rem 0;
-`;
-
-const Type = styled.button`
-  width: 20px;
-  background-color: #ced4d9;
-  border: none;
-  border-radius: 5px;
-  padding: 5px;
-  width: 50px;
-`;
-
-const AddButton = styled.button`
-  border: none;
-  background-color: transparent;
-  font-size: 20px;
-  color: #697076;
-  cursor: pointer;
-  &:hover {
-    color: #ee4e4e;
-  }
-`;
