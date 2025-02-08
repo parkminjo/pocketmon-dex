@@ -96,6 +96,7 @@ const SelectedCard = styled.div`
   padding-right: 8px;
   border-radius: 1rem;
   background-color: #ffcb03;
+  cursor: pointer;
 
   transition: all 0.3s ease-in-out;
   &:hover {
@@ -123,6 +124,8 @@ const DeleteButton = styled.button`
   background-color: transparent;
   font-size: 20px;
   color: #ee4e4e;
+  cursor: pointer;
+
   &:hover {
     color: #697076;
   }
