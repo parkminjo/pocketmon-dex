@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { removePokemon } from "../redux/slices/pokemonSlice";
 
-import { ParagraphStyle, TitleStyle } from "../styled-component/CommonStyle";
+import { TitleStyle, ParagraphStyle } from "../styled-component/CommonStyle";
 import { DashboardStyle as S } from "../styled-component/DashboardStyle";
 
 const Dashboard = () => {

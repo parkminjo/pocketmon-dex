@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
 import MOCK_DATA from "../API/MOCK_DATA";
+
 import { ToastContainer } from "react-toastify";
 import { Slide } from "react-toastify";
 
@@ -10,7 +11,7 @@ const PokemonList = () => {
   return (
     <Container>
       {MOCK_DATA.map((pokemon) => {
-        <PokemonCard key={pokemon.id} pokemon={pokemon} />;
+        return <PokemonCard key={pokemon.id} pokemon={pokemon} />;
       })}
       <ToastContainer
         position="top-center"

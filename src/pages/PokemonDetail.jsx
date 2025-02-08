@@ -6,7 +6,6 @@ import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Slide, toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import { useDispatch, useSelector } from "react-redux";
 import { addPokemon, removePokemon } from "../redux/slices/pokemonSlice";

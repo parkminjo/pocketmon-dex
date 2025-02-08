@@ -6,14 +6,12 @@ import { addPokemon } from "../redux/slices/pokemonSlice";
 import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { toast } from "react-toastify";
 
-import { ParagraphStyle, TitleStyle } from "../styled-component/CommonStyle";
+import { TitleStyle, ParagraphStyle } from "../styled-component/CommonStyle";
 import { PokemonCardStyle as S } from "../styled-component/PokemonCardStyle";
 
 const PokemonCard = ({ pokemon }) => {
-  console.log(pokemon);
   const { id, img_url, korean_name, types } = pokemon;
 
   /** 사용자가 등록한 포켓몬 리스트 */
@@ -33,15 +31,12 @@ const PokemonCard = ({ pokemon }) => {
         No. {id}
       </ParagraphStyle>
       <TitleStyle $fontSize="20px">{korean_name}</TitleStyle>
-
       <img src={img_url} alt="포켓몬 사진" />
-
       <S.TypesBox>
         {types.map((type) => (
           <S.Type key={type}>{type}</S.Type>
         ))}
       </S.TypesBox>
-
       <S.AddButton
         onClick={(event) => {
           event.stopPropagation();
