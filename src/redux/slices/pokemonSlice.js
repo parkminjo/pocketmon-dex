@@ -13,7 +13,10 @@ export const pokemonSlice = createSlice({
     },
 
     removePokemon: (state, action) => {
-      return state.filter((pokemon) => pokemon.id !== action.payload);
+      const filteredPokemonList = state.filter(
+        (pokemon) => pokemon.id !== action.payload
+      );
+      return filteredPokemonList;
     },
   },
 });
