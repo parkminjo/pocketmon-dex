@@ -1,8 +1,8 @@
 import React from "react";
-import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
 import MOCK_DATA from "../API/MOCK_DATA";
 
+import styled from "styled-components";
 import { ToastContainer } from "react-toastify";
 import { Slide } from "react-toastify";
 

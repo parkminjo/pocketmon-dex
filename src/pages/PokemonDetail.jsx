@@ -1,16 +1,15 @@
 import React from "react";
-import { useSearchParams } from "react-router-dom";
 import MOCK_DATA from "../API/MOCK_DATA";
+import { useSearchParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addPokemon, removePokemon } from "../redux/slices/pokemonSlice";
 
 import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Slide, toast, ToastContainer } from "react-toastify";
 
-import { useDispatch, useSelector } from "react-redux";
-import { addPokemon, removePokemon } from "../redux/slices/pokemonSlice";
-
-import { ParagraphStyle, TitleStyle } from "../styled-component/CommonStyle";
+import { TitleStyle, ParagraphStyle } from "../styled-component/CommonStyle";
 import { PokemonDetailStyle as S } from "../styled-component/PokemonDetailStyle";
 
 const PokemonDetail = () => {

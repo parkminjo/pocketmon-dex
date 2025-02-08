@@ -1,9 +1,10 @@
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { removePokemon } from "../redux/slices/pokemonSlice";
+
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { TitleStyle, ParagraphStyle } from "../styled-component/CommonStyle";
 import { DashboardStyle as S } from "../styled-component/DashboardStyle";
