@@ -1,60 +1,45 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import MOCK_DATA from "../API/MOCK_DATA";
 import { PokemonContext } from "../context/PokemonContext";
 
 import { faHeart as faRegularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faSolidHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Slide, ToastContainer } from "react-toastify";
 
-const PokemonCard = () => {
+const PokemonCard = ({ pokemon }) => {
+  const { id, img_url, korean_name, types } = pokemon;
+
   const { pokemonList, addPokemon } = useContext(PokemonContext);
   const navigate = useNavigate();
 
   /** 포켓몬 카드 UI */
   return (
-    <>
-      {MOCK_DATA.map((pokemon) => {
-        const { id, img_url, korean_name, types } = pokemon;
-        return (
-          <Card key={id} onClick={() => navigate(`/detail?id=${id}`)}>
-            <P>No. {id}</P>
-            <H1>{korean_name}</H1>
+    <Card onClick={() => navigate(`/detail?id=${id}`)}>
+      <P>No. {id}</P>
+      <H1>{korean_name}</H1>
 
-            <img src={img_url} alt="포켓몬 사진" />
+      <img src={img_url} alt="포켓몬 사진" />
 
-            <TypesDiv>
-              {types.map((type) => (
-                <Type key={type}>{type}</Type>
-              ))}
-            </TypesDiv>
+      <TypesDiv>
+        {types.map((type) => (
+          <Type key={type}>{type}</Type>
+        ))}
+      </TypesDiv>
 
-            <AddButton
-              onClick={(event) => {
-                event.stopPropagation();
-                addPokemon(pokemon);
-              }}
-            >
-              {pokemonList.some((pokemon) => pokemon.id === id) ? (
-                <FontAwesomeIcon icon={faSolidHeart} />
-              ) : (
-                <FontAwesomeIcon icon={faRegularHeart} />
-              )}
-            </AddButton>
-          </Card>
-        );
-      })}
-      <ToastContainer
-        position="top-center"
-        limit={1}
-        closeButton={false}
-        autoClose={1000}
-        theme="dark"
-        transition={Slide}
-      />
-    </>
+      <AddButton
+        onClick={(event) => {
+          event.stopPropagation();
+          addPokemon(pokemon);
+        }}
+      >
+        {pokemonList.some((pokemon) => pokemon.id === id) ? (
+          <FontAwesomeIcon icon={faSolidHeart} />
+        ) : (
+          <FontAwesomeIcon icon={faRegularHeart} />
+        )}
+      </AddButton>
+    </Card>
   );
 };
 
