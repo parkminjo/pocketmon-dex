@@ -11,6 +11,7 @@ export const PokemonCardStyle = {
     background-color: white;
     border: 4px solid #ffcb03;
     border-radius: 1rem;
+    cursor: pointer;
 
     transition: all 0.3s ease-in-out;
     &:hover {

@@ -37,6 +37,7 @@ export const DashboardStyle = {
     padding-right: 8px;
     border-radius: 1rem;
     background-color: #ffcb03;
+    cursor: pointer;
 
     transition: all 0.3s ease-in-out;
     &:hover {
@@ -55,6 +56,8 @@ export const DashboardStyle = {
     background-color: transparent;
     font-size: 20px;
     color: #ee4e4e;
+    cursor: pointer;
+
     &:hover {
       color: #697076;
     }
